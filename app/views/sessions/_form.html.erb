@@ -1,3 +1,5 @@
-<%= form_with url: sign_in_path, local: true do |f| %>
-
+<%= form_with(:session, url: sessions_path, method: 'POST' ) , local: true do |f| %>
+  <%= f.text_field :user, autofocus: true, placeholder: "email" %>
+  <%= f.text_field :password, autofocus: true, placeholder: "Password" %>
+  <%= f.submit 'login' %>
 <% end %>
