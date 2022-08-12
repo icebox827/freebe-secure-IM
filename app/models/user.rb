@@ -7,8 +7,4 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: true }
   validates_format_of :email, with: /\A\S+@.+\.\S+\z/
   validates :password, presence: true, length: { minimum: 8 }
-
-  def welcome
-    self.first_name
-  end
 end
