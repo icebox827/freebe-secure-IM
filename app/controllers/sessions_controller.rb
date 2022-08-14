@@ -2,11 +2,11 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    @user = User.find_by(phone: params[:session][:user])
+    @user = User.find_by(email: params[:session][:user])
 
     if @user
       session[:user_id] = @user.id
-      session[:username] = @user.name
+      session[:email] = @user.email
       redirect_to chatrooms_path
     else
       flash[:alert] = 'Wrong login info'

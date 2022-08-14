@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show new edit update]
+  before_action :set_user, only: %i[show edit update]
   def index
     @users = User.all
   end
 
   def show;end
 
-  def new;end
-
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
 
-    if@user.save
+    if @user.save
       flash[:success] = 'User created successfully'
+      session[:user_id] = @user.id
+      session[:first_name] = @user.first_name
     else
       flash[:alert] = 'Cannot create user'
       render 'new'
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:first_name, :last_name, :phone, :email, :password_digest)
+    params.permit(:first_name, :last_name, :phone, :email, :password_digest, :date_of_birth, :gender)
   end
 
   def set_user
