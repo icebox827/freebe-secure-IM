@@ -14,13 +14,13 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      flash[:success] = 'User created successfully'
+      flash[:notice] = "Welcome #{@user.first_name} fo freebe IM Chat app"
       session[:user_id] = @user.id
       session[:first_name] = @user.first_name
       redirect_to login_path
     else
       flash[:alert] = 'Cannot create user'
-      render 'new'
+      redirect_to signup_path
     end
   end
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = 'user updated successfully'
+      flash[:notice] = 'user updated successfully'
       redirect_to chatrooms_path
     else
       flash[:alert] = 'Cannot update user'
