@@ -1,12 +1,19 @@
 <div class="ui centered grid">
   <div class="column">
-    <%= form_with (scope: :session, url: login_path, local: true ) |f| %>
-      <%= f.text_field :first_name, autofocus: true, placeholder: "First name" %>
-      <%= f.text_field :last_name, autofocus: true, placeholder: "Last name" %>
-      <%= f.text_field :phone, autofocus: true, placeholder: "Phone" %>
-      <%= f.email_field :email, autofocus: true, placeholder: "email" %>
-      <%= f.password_field :password, autofocus: true, placeholder: "Password" %>
-      <%= f.submit 'Signup %>
+    <%= form_with model: @user, local: true do |f| %>
+      <%= f.text_field :first_name, autofocus: true, placeholder: "Nombre" %>
+      <%= f.text_field :last_name, autofocus: true, placeholder: "Apellido" %>
+      <%= f.telephone_field :phone, autofocus: true, placeholder: "Numero de celular" %>
+      <%= f.email_field :email, autofocus: true, placeholder: "Correo electronico" %>
+      <%= f.password_field :password, autofocus: true, placeholder: "Contrasena" %>
+      <%= f.date_field :date_of_birth %>
+      <%= f.radio_button :gender, "feminino" %>
+      <%= f.label :gender, "Feminino" %>
+      <%= f.radio_button :gender, "masculino" %>
+      <%= f.label :gender, "Masculino" %>
+      <%= f.radio_button :gender, "personalizado" %>
+      <%= f.label :gender, "Personalizado" %>
+      <%= f.submit 'Registrarse' %>
     <% end %>
   </div>
 </div>

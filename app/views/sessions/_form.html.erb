@@ -1,6 +1,6 @@
 <div class="ui centered grid">
   <div class="column">
-    <%= form_with (scope: :session, url: login_path, local: true ) |f| %>   
+    <%= form_with (scope: :session, url: login_path, local: true ) do |f| %>   
       <%= f.email_field :email, autofocus: true, placeholder: "email" %>
       <%= f.password_field :password, autofocus: true, placeholder: "Password" %>
       <%= f.submit 'Login' %>
