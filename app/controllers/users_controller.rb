@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       flash[:success] = 'User created successfully'
       session[:user_id] = @user.id
       session[:first_name] = @user.first_name
+      redirect_to login_path
     else
       flash[:alert] = 'Cannot create user'
       render 'new'

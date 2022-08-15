@@ -1,0 +1,6 @@
+<% if obj.errors.any? %>
+  flash[:alert] = "The following errors prevent the user to be created"
+  <% obj.errors.full_messages.each do |msg|
+    <%= msg %>
+  <% end %>
+<% end %>
