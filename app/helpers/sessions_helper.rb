@@ -19,7 +19,7 @@ module SessionsHelper
   def confirm_logged_in_user
     return if logged_in?
 
-    flash[:error] = 'Log-in is required to proceed!'
+    flash[:error] = 'Login is required to proceed!'
     redirect_to login_path
   end
 end
