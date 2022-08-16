@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:notice] = 'user updated successfully'
-      redirect_to chatrooms_path
+      redirect_to @user
     else
       flash[:alert] = 'Cannot update user'
       render 'edit'
